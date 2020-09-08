@@ -8,9 +8,15 @@ library(widyr)
 library(igraph)
 library(ggraph)
 
+rtweet::sto
 
 
 list_members<- rtweet::lists_members("1234500090838036480")
+
+user_names<- 
+  list_members%>%
+  select(screen_name)
+
 
 id_members<- 
   list_members%>%
@@ -18,6 +24,7 @@ id_members<-
   
 
 saveRDS(id_members, "user_id.rds")
+saveRDS(user_names, "user_names.rds")
 
 location_members<- list_members$location
 
